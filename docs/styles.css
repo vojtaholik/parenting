@@ -1,0 +1,512 @@
+/* Mobile-first Evidence-Based Parenting Docs */
+
+:root {
+  --theme-color: #4a6741;
+  --theme-color-light: #6b8a5e;
+  --text-color: #2c3e2c;
+  --text-muted: #5a6b5a;
+  --bg-color: #fafbf9;
+  --sidebar-bg: #f5f7f4;
+  --border-color: #e2e8df;
+  --code-bg: #f0f4ee;
+  --link-color: #4a6741;
+  --link-hover: #3a5331;
+
+  /* Spacing */
+  --content-max-width: 720px;
+  --mobile-padding: 1.25rem;
+}
+
+/* Base typography - optimized for reading */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text-color);
+  background: var(--bg-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Sidebar styling */
+.sidebar {
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  padding-top: env(safe-area-inset-top);
+}
+
+.sidebar ul li a {
+  color: var(--text-color);
+  font-size: 15px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  margin: 2px 8px;
+  transition: background 0.15s ease;
+}
+
+.sidebar ul li a:hover {
+  background: rgba(74, 103, 65, 0.08);
+  color: var(--theme-color);
+}
+
+.sidebar ul li.active > a {
+  background: rgba(74, 103, 65, 0.12);
+  color: var(--theme-color);
+  font-weight: 600;
+}
+
+.sidebar .sidebar-nav > ul > li > a {
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  margin-top: 16px;
+}
+
+.sidebar .sidebar-nav > ul > li:first-child > a {
+  margin-top: 0;
+}
+
+/* App name in sidebar */
+.app-name-link {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: var(--theme-color) !important;
+  padding: 20px 16px !important;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 8px;
+}
+
+/* Content area */
+.content {
+  padding: var(--mobile-padding);
+  padding-bottom: calc(var(--mobile-padding) + env(safe-area-inset-bottom));
+}
+
+.markdown-section {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+/* Headings */
+.markdown-section h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border-color);
+  color: var(--text-color);
+}
+
+.markdown-section h2 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 2.5rem 0 1rem 0;
+  color: var(--text-color);
+}
+
+.markdown-section h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 2rem 0 0.75rem 0;
+  color: var(--text-muted);
+}
+
+/* First heading shouldn't have top margin */
+.markdown-section > h1:first-child,
+.markdown-section > h2:first-child {
+  margin-top: 0;
+}
+
+/* Paragraphs */
+.markdown-section p {
+  margin: 0 0 1.25rem 0;
+}
+
+/* Links */
+.markdown-section a {
+  color: var(--link-color);
+  text-decoration: underline;
+  text-decoration-color: rgba(74, 103, 65, 0.3);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.15s ease;
+}
+
+.markdown-section a:hover {
+  text-decoration-color: var(--link-color);
+}
+
+/* Lists */
+.markdown-section ul,
+.markdown-section ol {
+  padding-left: 1.5rem;
+  margin: 0 0 1.25rem 0;
+}
+
+.markdown-section li {
+  margin: 0.4rem 0;
+}
+
+.markdown-section li > ul,
+.markdown-section li > ol {
+  margin: 0.4rem 0;
+}
+
+/* Code */
+.markdown-section code {
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-family: 'SF Mono', 'Menlo', 'Monaco', monospace;
+}
+
+.markdown-section pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.25rem 0;
+}
+
+.markdown-section pre code {
+  background: none;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Tables - horizontal scroll on mobile */
+.markdown-section table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.25rem 0;
+  font-size: 15px;
+}
+
+.markdown-section table th,
+.markdown-section table td {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.markdown-section table th {
+  background: var(--sidebar-bg);
+  font-weight: 600;
+}
+
+.markdown-section table tr:nth-child(even) {
+  background: rgba(0,0,0,0.02);
+}
+
+/* Blockquotes - callout style */
+.markdown-section blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  background: rgba(74, 103, 65, 0.06);
+  border-left: 4px solid var(--theme-color);
+  border-radius: 0 8px 8px 0;
+}
+
+.markdown-section blockquote p {
+  margin: 0;
+}
+
+/* Strong emphasis */
+.markdown-section strong {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* Horizontal rules */
+.markdown-section hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 2rem 0;
+}
+
+/* ============================================
+   MOBILE SPECIFIC (<768px)
+   ============================================ */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  /* Sidebar toggle button - make it bigger and more visible */
+  .sidebar-toggle {
+    width: 44px;
+    height: 44px;
+    padding: 12px;
+    background: var(--bg-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    left: 12px;
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    top: auto;
+    position: fixed;
+    z-index: 100;
+  }
+
+  .sidebar-toggle span {
+    background: var(--theme-color);
+    height: 2px;
+  }
+
+  /* When sidebar is open */
+  body.close .sidebar-toggle {
+    background: var(--sidebar-bg);
+  }
+
+  /* Sidebar - full screen overlay on mobile */
+  .sidebar {
+    padding: calc(20px + env(safe-area-inset-top)) 0 calc(80px + env(safe-area-inset-bottom)) 0;
+  }
+
+  .sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Content padding */
+  .content {
+    padding: 1rem;
+    padding-bottom: calc(80px + env(safe-area-inset-bottom));
+  }
+
+  /* Headings */
+  .markdown-section h1 {
+    font-size: 1.5rem;
+  }
+
+  .markdown-section h2 {
+    font-size: 1.25rem;
+  }
+
+  .markdown-section h3 {
+    font-size: 1.05rem;
+  }
+
+  /* Code blocks */
+  .markdown-section pre {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding: 1rem;
+    border-radius: 0;
+  }
+
+  /* Tables - edge to edge */
+  .markdown-section table {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    width: calc(100% + 2rem);
+  }
+
+  /* Touch targets - make links easier to tap */
+  .sidebar ul li a {
+    padding: 12px 16px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* ============================================
+   SEARCH STYLES
+   ============================================ */
+.search {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.search input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 15px;
+  background: white;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search input:focus {
+  outline: none;
+  border-color: var(--theme-color);
+  box-shadow: 0 0 0 3px rgba(74, 103, 65, 0.1);
+}
+
+.search .clear-button {
+  right: 24px;
+}
+
+.search .results-panel {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  margin-top: 8px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.search .matching-post {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.search .matching-post:last-child {
+  border-bottom: none;
+}
+
+.search .matching-post h2 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: var(--theme-color);
+}
+
+.search .matching-post p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ============================================
+   DARK MODE (respects system preference)
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --theme-color: #8fb882;
+    --theme-color-light: #a5c89a;
+    --text-color: #e5e9e3;
+    --text-muted: #a3b09e;
+    --bg-color: #1a1f1a;
+    --sidebar-bg: #232923;
+    --border-color: #3a4538;
+    --code-bg: #2a322a;
+    --link-color: #8fb882;
+    --link-hover: #a5c89a;
+  }
+
+  body {
+    background: var(--bg-color);
+  }
+
+  .sidebar-toggle {
+    background: var(--sidebar-bg);
+  }
+
+  .search input {
+    background: var(--code-bg);
+    color: var(--text-color);
+  }
+
+  .search .results-panel {
+    background: var(--sidebar-bg);
+  }
+}
+
+/* ============================================
+   ASCII ART PRESERVATION
+   ============================================ */
+.markdown-section pre code {
+  white-space: pre;
+  word-wrap: normal;
+}
+
+/* ============================================
+   PAGINATION (prev/next navigation)
+   ============================================ */
+.docsify-pagination-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 3rem 0 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.pagination-item {
+  flex: 1;
+  min-width: 0;
+}
+
+.pagination-item--previous {
+  padding-right: 8px;
+}
+
+.pagination-item--next {
+  padding-left: 8px;
+  text-align: right;
+}
+
+.pagination-item a {
+  display: block;
+  padding: 16px;
+  background: var(--sidebar-bg);
+  border-radius: 8px;
+  text-decoration: none !important;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.pagination-item a:hover {
+  background: var(--code-bg);
+  transform: translateY(-1px);
+}
+
+.pagination-item-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.pagination-item-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--theme-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 768px) {
+  .docsify-pagination-container {
+    flex-direction: column;
+  }
+
+  .pagination-item--previous,
+  .pagination-item--next {
+    padding: 0;
+    text-align: left;
+  }
+
+  .pagination-item a {
+    padding: 14px;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  .sidebar,
+  .sidebar-toggle,
+  .github-corner {
+    display: none !important;
+  }
+
+  .content {
+    margin: 0 !important;
+    padding: 20px !important;
+  }
+
+  .markdown-section {
+    max-width: 100% !important;
+  }
+}
