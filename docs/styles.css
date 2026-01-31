@@ -169,7 +169,7 @@ body {
 
 /* Navigation */
 .sidebar-nav {
-  padding: var(--space-md) 0;
+  padding: var(--space-sm) 0;
 }
 
 .sidebar-nav ul {
@@ -178,44 +178,61 @@ body {
   padding: 0;
 }
 
-.sidebar-nav > ul > li {
+.sidebar-nav li {
   margin: 0;
 }
 
-/* Section headers (top-level items) */
-.sidebar-nav > ul > li > a {
+/* Section headers (top-level items WITHOUT links - Docsify uses <p> for these) */
+.sidebar-nav > ul > li > p {
   display: block;
-  padding: var(--space-sm) var(--space-lg);
+  padding: var(--space-xs) var(--space-lg);
+  margin: var(--space-lg) 0 var(--space-xs) 0;
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--text-muted) !important;
-  margin-top: var(--space-lg);
-  background: transparent !important;
-  pointer-events: none;
+  color: var(--text-muted);
 }
 
-.sidebar-nav > ul > li:first-child > a {
-  margin-top: 0;
+.sidebar-nav > ul > li:first-child > p {
+  margin-top: var(--space-sm);
 }
 
-/* Nested nav items */
+/* Top-level links (Home, Practical Tips, etc) */
+.sidebar-nav > ul > li > a {
+  display: block;
+  padding: 8px var(--space-lg);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary) !important;
+  text-decoration: none !important;
+  transition: color 0.15s, background 0.15s;
+}
+
+.sidebar-nav > ul > li > a:hover {
+  color: var(--color-forest) !important;
+  background: rgba(61, 90, 61, 0.04);
+}
+
+.sidebar-nav > ul > li.active > a {
+  color: var(--color-forest) !important;
+  font-weight: 600;
+  background: rgba(61, 90, 61, 0.06);
+}
+
+/* Nested nav items (second level) */
 .sidebar-nav ul ul {
   padding: 0;
 }
 
 .sidebar-nav ul ul li a {
   display: block;
-  padding: 8px var(--space-lg);
-  padding-left: calc(var(--space-lg) + 8px);
+  padding: 7px var(--space-lg) 7px calc(var(--space-lg) + 12px);
   font-size: 14px;
   font-weight: 400;
   color: var(--text-secondary) !important;
   text-decoration: none !important;
-  border-left: 2px solid transparent;
-  margin-left: var(--space-lg);
-  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  transition: color 0.15s, background 0.15s;
 }
 
 .sidebar-nav ul ul li a:hover {
@@ -226,11 +243,10 @@ body {
 .sidebar-nav ul ul li.active > a {
   color: var(--color-forest) !important;
   font-weight: 500;
-  border-left-color: var(--color-forest);
-  background: rgba(61, 90, 61, 0.06);
+  background: rgba(61, 90, 61, 0.08);
 }
 
-/* Deep nested items */
+/* Third level nesting */
 .sidebar-nav ul ul ul li a {
   padding-left: calc(var(--space-lg) + 24px);
   font-size: 13px;
@@ -612,12 +628,16 @@ body.close .sidebar-toggle {
   }
 
   /* Touch-friendly nav items */
+  .sidebar-nav > ul > li > a,
   .sidebar-nav ul ul li a {
     padding: 12px var(--space-lg);
-    padding-left: calc(var(--space-lg) + 8px);
     min-height: 44px;
     display: flex;
     align-items: center;
+  }
+
+  .sidebar-nav ul ul li a {
+    padding-left: calc(var(--space-lg) + 12px);
   }
 
   /* Content */
