@@ -393,19 +393,138 @@ body {
 
   body {
     background: var(--bg-color);
+    color: var(--text-color);
+  }
+
+  /* Content area */
+  .content,
+  section.content {
+    background: var(--bg-color);
+  }
+
+  /* Headings - override base theme */
+  .markdown-section h1,
+  .markdown-section h2,
+  .markdown-section h3,
+  .markdown-section h4,
+  .markdown-section h5,
+  .markdown-section h6 {
+    color: var(--text-color);
+  }
+
+  .markdown-section h3 {
+    color: var(--text-muted);
+  }
+
+  /* Body text */
+  .markdown-section,
+  .markdown-section p,
+  .markdown-section li {
+    color: var(--text-color);
+  }
+
+  /* Strong text */
+  .markdown-section strong {
+    color: var(--text-color);
+  }
+
+  /* Links */
+  .markdown-section a {
+    color: var(--link-color);
+    text-decoration-color: rgba(143, 184, 130, 0.4);
+  }
+
+  .markdown-section a:hover {
+    color: var(--link-hover);
+  }
+
+  /* Code */
+  .markdown-section code {
+    background: var(--code-bg);
+    color: var(--text-color);
+  }
+
+  .markdown-section pre {
+    background: var(--code-bg);
+  }
+
+  /* Tables */
+  .markdown-section table th {
+    background: var(--sidebar-bg);
+    color: var(--text-color);
+  }
+
+  .markdown-section table td {
+    color: var(--text-color);
+  }
+
+  .markdown-section table tr:nth-child(even) {
+    background: rgba(255,255,255,0.02);
+  }
+
+  /* Blockquotes */
+  .markdown-section blockquote {
+    background: rgba(143, 184, 130, 0.08);
+    border-left-color: var(--theme-color);
+  }
+
+  .markdown-section blockquote p {
+    color: var(--text-muted);
+  }
+
+  /* Sidebar */
+  .sidebar {
+    background: var(--sidebar-bg);
+    border-right-color: var(--border-color);
+  }
+
+  .sidebar ul li a {
+    color: var(--text-color);
+  }
+
+  .sidebar ul li a:hover {
+    color: var(--theme-color);
+  }
+
+  .sidebar .sidebar-nav > ul > li > a {
+    color: var(--text-muted);
+  }
+
+  .app-name-link {
+    color: var(--theme-color) !important;
+    border-bottom-color: var(--border-color);
   }
 
   .sidebar-toggle {
     background: var(--sidebar-bg);
   }
 
+  .sidebar-toggle span {
+    background: var(--theme-color);
+  }
+
+  /* Search */
   .search input {
     background: var(--code-bg);
     color: var(--text-color);
+    border-color: var(--border-color);
+  }
+
+  .search input::placeholder {
+    color: var(--text-muted);
   }
 
   .search .results-panel {
     background: var(--sidebar-bg);
+  }
+
+  .search .matching-post p {
+    color: var(--text-muted);
+  }
+
+  /* Cover page if used */
+  .cover-main {
+    color: var(--text-color);
   }
 }
 
